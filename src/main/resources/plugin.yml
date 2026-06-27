@@ -1,5 +1,5 @@
 name: AsRelegion
 version: '${version}'
 
-main: org.asyn.asRelegion.main
+main: org.asyn.asRelegion.Main
 api-version: '1.21'
