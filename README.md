@@ -1,5 +1,3 @@
 # AssReligion
 
-best pinche plugin raza
-no
-papu
+The best plugin of minecraft ever
