@@ -1,5 +1,7 @@
 package org.asyn.asRelegion;
 
+import org.asyn.asRelegion.commands.AdminMain;
+import org.asyn.asRelegion.commands.PlayerMain;
 import org.asyn.asRelegion.commands.ReligionMain;
 import org.asyn.asRelegion.listeners.PlayerJoin;
 import org.asyn.asRelegion.utils.Messages;
@@ -26,14 +28,15 @@ public final class Main extends JavaPlugin {
     @Override
     public void onDisable() {
 
-        Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', prefix+" &cdisabled"));
+        Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + " &cdisabled"));
     }
 
-    public void registerCommands(){
-        this.getCommand("religion").setExecutor(new ReligionMain(this));
+    public void registerCommands() {
+        this.getCommand("religionadmin").setExecutor(new AdminMain(this));
+        this.getCommand("religion").setExecutor(new PlayerMain(this));
     }
 
-    public void registerListeners(){
+    public void registerListeners() {
         getServer().getPluginManager().registerEvents(new PlayerJoin(this), this);
     }
 }

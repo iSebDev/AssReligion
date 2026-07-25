@@ -7,11 +7,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class ReligionMain implements CommandExecutor {
+public class PlayerMain implements CommandExecutor {
 
     private final Main plugin;
 
-    public ReligionMain(Main plugin) {
+    public PlayerMain(Main plugin) {
         this.plugin = plugin;
     }
 
@@ -35,9 +35,6 @@ public class ReligionMain implements CommandExecutor {
             case "zone","z","zones":
 
                 break;
-            case "reload":
-                plugin.reloadConfig();
-                break;
             default:
                 player.sendMessage(Messages.getColoredMessage("&cSubcommand not found. Use /religion for help."));
                 break;
@@ -47,8 +44,8 @@ public class ReligionMain implements CommandExecutor {
     }
 
     public void sendGeneralHelp(Player player) {
-        player.sendMessage(Messages.getColoredMessage("&6====== &eReligión Help &6======"));
-        player.sendMessage(Messages.getColoredMessage("&a/religion <subcommand> &7- Gestion of zones"));
+        player.sendMessage(Messages.getColoredMessage("&6====== &eReligion Help &6======"));
+        player.sendMessage(Messages.getColoredMessage("&a/religion list &7- Gestion of zones"));
     }
 
 }

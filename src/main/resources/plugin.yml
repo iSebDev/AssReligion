@@ -3,3 +3,11 @@ version: '${version}'
 
 main: org.asyn.asRelegion.Main
 api-version: '1.21'
+
+commands:
+  religionadmin:
+    description: Admin Command
+    permission: assreligion.admin
+  religion:
+    description: Player Command
+    permission: assreligion.player
