@@ -24,6 +24,8 @@ public class AdminMain implements CommandExecutor {
 
         Player player = (Player) sender;
 
+        if (!(player.isOp() || player.hasPermission("assreligion.admin"))) return false;
+
         if (args.length == 0) {
             sendGeneralHelp(player);
             return true;
@@ -32,8 +34,11 @@ public class AdminMain implements CommandExecutor {
         String rama = args[0].toLowerCase();
 
         switch (rama) {
-            case "zone","z","zones":
-
+            case "religion":
+                subcommandReligion(player, args);
+                break;
+            case "players":
+                subcommandPlayer(player, args);
                 break;
             case "reload":
                 plugin.reloadConfig();
@@ -46,9 +51,43 @@ public class AdminMain implements CommandExecutor {
         return true;
     }
 
-    public void sendGeneralHelp(Player player) {
-        player.sendMessage(Messages.getColoredMessage("&6====== &eReligión Help &6======"));
-        player.sendMessage(Messages.getColoredMessage("&a/religion <subcommand> &7- Gestion of zones"));
+    public void subcommandPlayer(Player player, String[] args) {
+        String rama = args[1].toLowerCase();
+
+        switch (rama) {
+            case "data":
+                break;
+            default:
+                subCommandPlayerHelp(player);
+                break;
+        }
     }
 
+    public void subcommandReligion(Player player, String[] args) {
+        String rama = args[1].toLowerCase();
+
+        switch (rama) {
+            case "data":
+                break;
+            default:
+                subCommandReligionHelp(player);
+                break;
+        }
+    }
+
+    public void sendGeneralHelp(Player player) {
+        player.sendMessage(Messages.getColoredMessage("&6====== &eReligión Admin Help Commands &6======"));
+        player.sendMessage(Messages.getColoredMessage("&a/religionadmin religion - Manage religions"));
+        player.sendMessage(Messages.getColoredMessage("&a/religionadmin player - Manage player"));
+    }
+
+    public void subCommandPlayerHelp(Player player) {
+        player.sendMessage(Messages.getColoredMessage("&6====== &eReligión Admin Help Commands &6======"));
+        player.sendMessage(Messages.getColoredMessage("&a/religionadmin player data - Get player data"));
+    }
+
+    public void subCommandReligionHelp(Player player) {
+        player.sendMessage(Messages.getColoredMessage("&6====== &eReligión Admin Help Commands &6======"));
+        player.sendMessage(Messages.getColoredMessage("&a/religionadmin religion data - Get religion data"));
+    }
 }
