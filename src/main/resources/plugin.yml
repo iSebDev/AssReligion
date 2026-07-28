@@ -1,6 +1,8 @@
 name: AsRelegion
 version: '${version}'
 
+depend: [MMOCore, MythicLib]
+
 main: org.asyn.asRelegion.Main
 api-version: '1.21'
 
